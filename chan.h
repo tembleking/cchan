@@ -139,6 +139,11 @@ public:
         open = false;
         cv.notify_all();
     }
+    
+    bool is_closed() noexcept {
+        lock lck(mtx);        
+        return !open;
+    }
 };
 
 /************************************************************************************************/
